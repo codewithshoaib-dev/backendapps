@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'social_django',
 
     'core_auth',
+
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -61,8 +63,10 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'core.middleware.WorkspaceMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'backendapps.urls'
