@@ -5,6 +5,8 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
+
 class Workspace(models.Model):
     name = models.CharField(max_length=150)
     slug = models.SlugField(max_length=160, unique=True)

@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('core_auth.urls')),
     path("oauth/", include("social_django.urls", namespace="social")),
+    path("api/", include("core.urls")),
+
 ]

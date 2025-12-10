@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated
 class WorkspaceViewSet(viewsets.ModelViewSet):
     queryset = Workspace.objects.all()
     permission_classes = [IsAuthenticated]
-    serializer_class = WorkspaceSerializer
+    
 
     def get_serializer_class(self):
         if self.action == 'create':

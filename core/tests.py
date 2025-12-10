@@ -47,7 +47,7 @@ def test_workspace_scoping(auth_client, workspace):
     assert p.workspace_id == workspace.id
 
 def test_non_member_cannot_access(api_client, user2, workspace):
-    api_client.login(username='user2', password='pass')
+    api_client.login(email='user2@gmail.com', password='pass')
     api_client.credentials(HTTP_X_WORKSPACE_ID=str(workspace.id))
     url = reverse('project-list')
     resp = api_client.get(url)
@@ -58,5 +58,6 @@ def test_admin_can_invite(auth_client, workspace, user2):
     url = reverse('workspace-invite-user', kwargs={'pk': workspace.id})
     payload = {'email': user2.email}
     resp = api_client.post(url, payload, format='json')
+    print(resp)
     assert resp.status_code in (200, 201)
     assert WorkspaceMembership.objects.filter(user=user2, workspace=workspace).exists()
